@@ -25,8 +25,8 @@ paths:
         style: simple
         explode: false
         schema:
-          type: string
-          format: uuid
+          type: number
+          format: integer
       responses:
         "200":
           description: Successful operation
@@ -52,8 +52,8 @@ paths:
         style: simple
         explode: false
         schema:
-          type: string
-          format: uuid
+          type: number
+          format: integer
       responses:
         "200":
           description: Successful operation
@@ -116,7 +116,6 @@ components:
           items:
             $ref: '#/components/schemas/GradeRecord'
       example:
-        student_id: 10
         last_name: Oxlong
         first_name: Mike
     GradeRecord:

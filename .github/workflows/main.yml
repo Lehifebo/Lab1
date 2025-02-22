@@ -10,9 +10,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
+    - name: Log in to Docker Hub
+      uses: docker/login-action@v2
+      with:
+        username: ${{ secrets.REGISTRY_USERNAME }}
+        password: ${{ secrets.REGISTRY_PASSWORD }}
     - name: run docker compose
       run: |
-        docker compose -f docker-compose.yaml -p devops up -d && \
+        docker compose  -p devops up -d && \
           docker ps && sleep 5
 
     - name: "Check files existence"

@@ -1,7 +1,6 @@
-version: '3.8'
 services:
   student_service:
-    image: lehifebo/student_service
+    image: lehifebo/student_service:latest
     restart: unless-stopped
     depends_on:
       - mongo

@@ -15,13 +15,7 @@ jobs:
       with:
         username: ${{ secrets.REGISTRY_USERNAME }}
         password: ${{ secrets.REGISTRY_PASSWORD }}
-    - name: Build image to Docker Hub
-      run: |
-        docker compose build 
-        docker images
-    - name: Push image to docker hub
-      run: |
-        docker tag lehifebo/student_service:latest lehifebo/student_service:latest
+
     - name: run docker compose
       run: |
         docker compose up -d && \
@@ -61,7 +55,7 @@ jobs:
       run: exit 1
 
     - name: Login to Container Registry
-      uses: docker/login-action@v1
+      uses: docker/login-action@v2
       with:
         username: ${{ secrets.REGISTRY_USERNAME }}
         password: ${{ secrets.REGISTRY_PASSWORD }}
